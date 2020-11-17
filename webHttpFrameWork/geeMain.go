@@ -6,25 +6,34 @@
 package main
 
 import (
-	"fmt"
 	"gee"
 	"net/http"
 )
 
 func main() {
 	engine := gee.New()
-	fmt.Printf("%p\n",engine)
-	engine.GET("/hello", helloHandler)
-	engine.POST("/abc", indexHandler)
-	engine.Run(":8080")
-}
+	engine.GET("/", func(ctx *gee.Context) {
+		ctx.HTML(http.StatusOK, "<h1>Hello~~~</h1>")
+	})
 
-func indexHandler(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "URL.path = %q\n", req.URL.Path)
-}
+	engine.GET("/hello", func(ctx *gee.Context) {
+		ctx.String(http.StatusOK, "hello %s", ctx.Query("name"))
+	})
 
-func helloHandler(w http.ResponseWriter, req *http.Request) {
-	for k, v := range req.Header {
-		fmt.Fprintf(w, "header[%q] = %q\n", k, v)
-	}
+	engine.GET("/hello/:name", func(c *gee.Context) {
+		c.String(http.StatusOK, "hello %s, you're at %s\n", c.Param("name"), c.Path)
+	})
+
+	engine.GET("/assets/*filepath", func(c *gee.Context) {
+		c.JSON(http.StatusOK, gee.H{"filepath": c.Param("filepath")})
+	})
+
+	engine.POST("/login", func(ctx *gee.Context) {
+		ctx.JSON(http.StatusOK, gee.H{
+			"username": ctx.PostForm("username"),
+			"password": ctx.PostForm("password"),
+		})
+	})
+
+	engine.Run(":9090")
 }
