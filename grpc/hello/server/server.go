@@ -7,7 +7,7 @@ package main
 
 import (
 	context "context"
-	"go-example/proto/hello"
+	"go-example/grpc/proto/hello"
 	"golang.org/x/net/trace"
 	"google.golang.org/grpc"
 	"log"
