@@ -31,7 +31,6 @@ func main() {
 	})
 	v2.POST("/login", func(c *gee.Context) {
 		c.JSON(http.StatusOK, gee.H{
-			"username": c.PostForm("username"),
 			"password": c.PostForm("password"),
 		})
 	})
@@ -41,6 +40,7 @@ func main() {
 		fmt.Printf(name[100])
 	})
 
+	fmt.Println("hello")
 	engine.Run(":9090")
 }
 
