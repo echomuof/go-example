@@ -15,6 +15,8 @@ type Context struct {
 	Method     string
 	Params     map[string]string
 	StatusCode int
+	handlers   []HandlerFunc
+	index      int
 }
 
 func newContext(w http.ResponseWriter, req *http.Request) *Context {
@@ -23,7 +25,24 @@ func newContext(w http.ResponseWriter, req *http.Request) *Context {
 		Request: req,
 		Path:    req.URL.Path,
 		Method:  req.Method,
+		index:   -1,
 	}
+}
+
+/*
+ * 逐个执行处理器，基于调用栈实现对中间件的调用
+ */
+func (c *Context) Next() {
+	c.index++
+	s := len(c.handlers)
+	for ; c.index < s; c.index++ {
+		c.handlers[c.index](c)
+	}
+}
+
+func (c *Context) Fail(code int, err string) {
+	c.index = len(c.handlers)
+	c.JSON(code, H{"message": err})
 }
 
 func (c *Context) Param(key string) string {

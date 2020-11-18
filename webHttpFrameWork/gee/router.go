@@ -81,13 +81,21 @@ func (r *router) getRoute(method string, path string) (*node, map[string]string)
 	return nil, nil
 }
 
+/*
+ * 执行请求的处理逻辑
+ */
 func (r *router) handle(ctx *Context) {
 	n, params := r.getRoute(ctx.Method, ctx.Path)
 	if n != nil {
 		ctx.Params = params
 		key := ctx.Method + "_" + n.wholePath
-		r.handlers[key](ctx)
+		//获取该请求的处理方法，绑定到处理器列表中
+		ctx.handlers = append(ctx.handlers, r.handlers[key])
 	} else {
-		ctx.String(http.StatusNotFound, "404 NOT FOUND %s\n", ctx.Path)
+		ctx.handlers = append(ctx.handlers, func(ctx *Context) {
+			ctx.String(http.StatusNotFound, "404 NOT FOUND %s\n", ctx.Path)
+		})
 	}
+	//调用所有的处理器
+	ctx.Next()
 }
