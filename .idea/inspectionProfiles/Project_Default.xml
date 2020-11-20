@@ -1,7 +1,8 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
-    <inspection_tool class="GoUnhandledErrorResult" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="GoNilness" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="GoUnhandledErrorResult" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <functions>
         <function importPath="fmt" name="Printf" />
         <function importPath="fmt" name="Errorf" />
@@ -22,7 +23,9 @@
         <method importPath="strings" receiver="*Builder" name="WriteRune" />
         <method importPath="math/rand" receiver="*Rand" name="Read" />
         <method importPath="google.golang.org/grpc" receiver="*Server" name="Serve" />
+        <method importPath="os" receiver="*File" name="Close" />
       </methods>
     </inspection_tool>
+    <inspection_tool class="GoUnusedCallResult" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
   </profile>
 </component>
