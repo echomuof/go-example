@@ -1,14 +1,13 @@
-package test
+package echoin
 
 import (
-	"echoin"
 	"fmt"
 	"reflect"
 	"testing"
 )
 
-func newTestRouter() *echoin.router {
-	r := echoin.newRouter()
+func newTestRouter() *router {
+	r := newRouter()
 	r.addRoute("GET", "/", nil)
 	r.addRoute("GET", "/hello/:name", nil)
 	r.addRoute("GET", "/hello/b/c", nil)
@@ -18,9 +17,9 @@ func newTestRouter() *echoin.router {
 }
 
 func TestParsePattern(t *testing.T) {
-	ok := reflect.DeepEqual(echoin.parsePattern("/p/:name"), []string{"p", ":name"})
-	ok = ok && reflect.DeepEqual(echoin.parsePattern("/p/*"), []string{"p", "*"})
-	ok = ok && reflect.DeepEqual(echoin.parsePattern("/p/*name/*"), []string{"p", "*name"})
+	ok := reflect.DeepEqual(parsePattern("/p/:name"), []string{"p", ":name"})
+	ok = ok && reflect.DeepEqual(parsePattern("/p/*"), []string{"p", "*"})
+	ok = ok && reflect.DeepEqual(parsePattern("/p/*name/*"), []string{"p", "*name"})
 	if !ok {
 		t.Fatal("test parsePattern failed")
 	}

@@ -10,6 +10,7 @@ import (
 	"time"
 )
 
+// 日志记录中间件
 func Logger() HandlerFunc {
 	return func(ctx *Context) {
 		t := time.Now()

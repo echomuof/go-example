@@ -15,6 +15,7 @@ import (
 
 type HandlerFunc func(ctx *Context)
 
+// 路由组
 type RouterGroup struct {
 	//组前缀
 	prefix      string

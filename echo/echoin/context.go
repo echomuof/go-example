@@ -8,6 +8,7 @@ import (
 
 type H map[string]interface{}
 
+// 请求上下文
 type Context struct {
 	Writer     http.ResponseWriter
 	Request    *http.Request

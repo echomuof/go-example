@@ -12,10 +12,10 @@ import (
 )
 
 func main() {
-	preStr := "https://lzdliving.alicdn.com/live_hp/840184c1-4388-4274-8f1a-363d40f3fb9f/"
-	postStr := ".ts?auth_key=1608433228-0-0-9086b345162058b2a519a34ba920d1e2"
-	dir := "/Users/wdr/Downloads/"
-	file, _ := os.OpenFile(dir+"gooo.mp4", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
+	preStr := "https://lzdliving.alicdn.com/live_hp/71a840e3-ca35-41ab-b89c-28f1eb29db1e/"
+	postStr := ".ts?auth_key=1608562391-0-0-651d64fdd203db7e41c1edc8d7a0529a"
+	dir := "/Users/darius/Documents/video/GOOO/"
+	file, _ := os.OpenFile(dir+"gooo2.mp4", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
 	w := bufio.NewWriter(file)
 	defer file.Close()
 	tr := &http.Transport{
@@ -23,7 +23,7 @@ func main() {
 	}
 	client := &http.Client{Transport: tr}
 
-	for i := 1; i < 350; i++ {
+	for i := 1; i <= 420; i++ {
 		time.Sleep(20 * time.Millisecond)
 		func(i int) {
 			url := fmt.Sprintf(preStr+"%d"+postStr, i)

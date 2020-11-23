@@ -3,7 +3,8 @@ module go-example
 go 1.15
 
 require (
-	gee v0.0.0
+	echoin v0.0.0
+	echoche v0.0.0
 	github.com/floostack/transcoder v1.1.1
 	github.com/giorgisio/goav v0.1.0
 	github.com/golang/protobuf v1.4.3
@@ -15,4 +16,7 @@ require (
 	google.golang.org/protobuf v1.25.0
 )
 
-replace gee => ./webHttpFrameWork/gee
+replace (
+    echoin => ./echo/echoin
+	echoche => ./echo/echoche
+)
