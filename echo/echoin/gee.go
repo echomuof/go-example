@@ -3,7 +3,7 @@
  * @author: echomuof
  * @created: 2020/11/17
  */
-package gee
+package echoin
 
 import (
 	"fmt"

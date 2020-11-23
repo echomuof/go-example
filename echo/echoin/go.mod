@@ -1,4 +1,4 @@
-module gee
+module echoin
 
 go 1.15
 
