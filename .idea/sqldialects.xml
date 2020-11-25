@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlResolveMappings">
+    <file url="file://$PROJECT_DIR$/example/main.go" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;0c850f63-fe94-4488-8d5d-696c55b039e0&quot;    },    &quot;name&quot;:{     &quot;@qname&quot;:&quot;48e301af-7b92-4bb0-b270-fb8fa5cfcbc8&quot;    },    &quot;name&quot;:{     &quot;@qname&quot;:&quot;5c944812-a660-473b-b896-3061ba4a6cf4&quot;    },    &quot;name&quot;:{     &quot;@qname&quot;:&quot;b7eba0a3-7573-40cd-b2c7-72c082c68e5c&quot;    },    &quot;name&quot;:{     &quot;@qname&quot;:&quot;c0ceb1b6-c631-41ff-80e1-192693c6393f&quot;    },    &quot;name&quot;:{     &quot;@qname&quot;:&quot;e99c252e-4b6c-4a0d-8c64-a6ca37257c21&quot;    }   }  } }}" />
+  </component>
+</project>

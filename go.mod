@@ -3,10 +3,11 @@ module go-example
 go 1.15
 
 require (
-	echoin v0.0.0
 	echoche v0.0.0
+	echoin v0.0.0
 	github.com/floostack/transcoder v1.1.1
 	github.com/giorgisio/goav v0.1.0
+	github.com/go-sql-driver/mysql v1.5.0
 	github.com/golang/protobuf v1.4.3
 	github.com/xfrr/goffmpeg v0.0.0-20200825100927-5550d238df5c
 	golang.org/x/net v0.0.0-20200822124328-c89045814202
@@ -17,6 +18,6 @@ require (
 )
 
 replace (
-    echoin => ./echo/echoin
 	echoche => ./echo/echoche
+	echoin => ./echo/echoin
 )
